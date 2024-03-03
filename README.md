@@ -40,15 +40,11 @@ The procedure to install from source is as follows: Check out the source code in
 extensions directory, compile by running `make`, install and restart GNOME Shell. For example:
 
     cd ~/.local/share/gnome-shell/extensions/
-    git clone https://gitlab.gnome.org/tuxor1337/hidetopbar.git hidetopbar@mathieu.bidon.ca
-    cd hidetopbar@mathieu.bidon.ca
-    make
-    cd ..
-    gnome-extensions enable hidetopbar@mathieu.bidon.ca
-    gnome-shell --replace &
+    git clone https://github.com/PuspenduBanerjee/hidetopbar-gnome-shell.git hidetopbar@puspendu.banerjee.gmail.com
+    cd hidetopbar@puspendu.banerjee.gmail.com
+    make inst
 
-The last command restarts GNOME Shell in X11, but it won't work under Wayland. You might
-need to log off and on again for the install procedure to take effect under Wayland.
+You might need to log off and on again for the install procedure to take effect under Wayland.
 
 
 Updating the language strings
@@ -92,6 +88,8 @@ Copyright (c) 2013-2023 Thomas Vogt.
 Copyright (c) 2012-2013 Mathieu Lutfy.
 
 Copyright (c) 2012 Philip Witte.
+
+Copyright (c) 2024 Puspendu Banerjee.
 
 Hide Top Bar is free software: you can redistribute it and/or modify it under the terms of the
 GNU General Public License as published by the Free Software Foundation, either version 3 of the
