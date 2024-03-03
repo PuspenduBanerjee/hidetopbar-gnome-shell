@@ -6,6 +6,10 @@ UI_FILES = $(shell echo {Settings-40,Settings}.ui)
 LOCALES_PO = $(wildcard locale/*/*/*.po)
 LOCALES_MO = $(patsubst %.po,%.mo,$(LOCALES_PO))
 
+EXTENSION_UUID := $(shell grep -n uuid metadata.json | cut -d '"' -f 4)
+EXTENSION_ZIP := $(EXTENSION_UUID).shell-extension.zip
+
+
 .PHONY: distclean clean all all-po
 
 all: hidetopbar.zip
@@ -14,10 +18,20 @@ schemas/gschemas.compiled:
 	glib-compile-schemas --strict ./schemas/
 
 hidetopbar.zip: schemas/gschemas.compiled $(LOCALES_MO)
-	zip hidetopbar.zip -r COPYING.txt $(JS_FILES) metadata.json $(LOCALES_MO) schemas Settings.ui Settings-40.ui
+	zip ${EXTENSION_ZIP} -r COPYING.txt $(JS_FILES) metadata.json $(LOCALES_MO) schemas Settings.ui Settings-40.ui
+
+inst: all
+	echo "$(EXTENSION_UUID)"
+	# gnome-extensions uninstall $(EXTENSION_UUID) ; true
+	gnome-extensions install --force ${EXTENSION_ZIP}
+	# gnome-extensions enable  \"$(EXTENSION_UUID)\"	; true
+	gnome-shell --replace ; true
+	gnome-extensions info $(EXTENSION_UUID) ; true
+		
+
 
 clean:
-	rm -rf hidetopbar.zip schemas/gschemas.compiled ${LOCALES_MO}
+	rm -rf ${EXTENSION_ZIP} schemas/gschemas.compiled ${LOCALES_MO}
 
 distclean: clean
 	rm -rf locale/hidetopbar.pot-stamp

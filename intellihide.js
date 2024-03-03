@@ -22,15 +22,22 @@
 // modifications. Dash to Dock is distributed under the terms of the GNU
 // General Public License, version 2 or later.
 
-const GLib = imports.gi.GLib;
-const Meta = imports.gi.Meta;
-const Shell = imports.gi.Shell;
+// const GLib = imports.gi.GLib;
+import GLib from 'gi://GLib';
+// const Meta = imports.gi.Meta;
+import Meta from 'gi://Meta';
+// const Shell = imports.gi.Shell;
+import Shell from 'gi://Shell';
+// const Clutter = imports.gi.Clutter;
 
-const Main = imports.ui.main;
-const Signals = imports.signals;
+// const Main = imports.ui.main;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+// const Signals = imports.signals;
+// import * as  Signals from  'resource:///org/gnome/shell/ui/signals.js';
 
-const Me = imports.misc.extensionUtils.getCurrentExtension();
-const Convenience = Me.imports.convenience;
+// const Me = imports.misc.extensionUtils.getCurrentExtension();
+// const Convenience = Me.imports.convenience;
+import * as Convenience from './convenience.js';
 
 // A good compromise between reactivity and efficiency; to be tuned.
 const INTELLIHIDE_CHECK_INTERVAL = 100;
@@ -65,7 +72,7 @@ const handledWindowTypes = [
  * Intallihide object: emit 'status-changed' signal when the overlap of windows
  * with the provided targetBoxClutter.ActorBox changes;
  */
-var Intellihide = class HideTopBar_Intellihide {
+export var Intellihide = class HideTopBar_Intellihide {
 
     constructor(settings, monitorIndex) {
         // Load settings
@@ -351,4 +358,4 @@ var Intellihide = class HideTopBar_Intellihide {
     }
 };
 
-Signals.addSignalMethods(Intellihide.prototype);
+// GLib.signals._addWindowSignals(Intellihide.prototype);
