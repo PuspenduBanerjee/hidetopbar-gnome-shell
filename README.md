@@ -7,6 +7,7 @@ In the extension's preferences, different behaviors can be specified: unhiding o
 
 ![clip](./preview.gif)
 
+<!--
 Installation from extensions.gnome.org
 --------------------------------------
 
@@ -28,6 +29,8 @@ your distribution can be avoided. You can install the package with:
 
 If you find problems with the _Debian packaged version_, please file bugs at
 the [Debian Bugtracking system](https://www.debian.org/Bugs/Reporting).
+
+-->
 
 Installation from source
 ------------------------
@@ -67,10 +70,13 @@ to be installed (the package names may vary depending on your distribution).
 
 Troubleshooting
 ---------------
+<!--
 
 ### Can I assign a shortcut to temporally disable the autohiding altogether?
 
 Follow the [instructions to assign a system-wide shortcut that disables/enables the extension](https://gitlab.gnome.org/tuxor1337/hidetopbar/issues/43#issuecomment-796583424).
+
+-->
 
 ### Notification pop-ups cause the top bar to hide.
 
