@@ -106,12 +106,14 @@ export var Intellihide = class HideTopBar_Intellihide {
         ], [
             // Add signals on windows created from now on
             global.display,
+            // global.background.display,
             'window-created',
             this._windowCreated.bind(this)
         ], [
             // triggered for instance when the window list order changes,
             // included when the workspace is switched
             global.display,
+            // global.background.display,
             'restacked',
             this._checkOverlap.bind(this)
         ], [
@@ -160,6 +162,7 @@ export var Intellihide = class HideTopBar_Intellihide {
     }
 
     _windowCreated(display, metaWindow) {
+        // console.error("*********************************Window Created************************************************************")
         this._addWindowSignals(metaWindow.get_compositor_private());
     }
 
@@ -308,7 +311,8 @@ export var Intellihide = class HideTopBar_Intellihide {
                         return true;
 
                     let currentApp = this._tracker.get_window_app(meta_win);
-                    let focusWindow = global.display.get_focus_window()
+                    // let focusWindow = global.display.get_focus_window()
+                    let focusWindow = global.backend.get_focus_window()
 
                     // Consider half maximized windows side by side
                     // and windows which are alwayson top
