@@ -4,5 +4,7 @@
   "name": "Hide Top Bar",
   "settings-schema": "org.gnome.shell.extensions.hidetopbar",
   "description": "Hide the top bar to make space",
-  "url": "https://github.com/PuspenduBanerjee/hidetopbar-gnome-shell"
+  "url": "https://github.com/PuspenduBanerjee/hidetopbar-gnome-shell",
+  "version": 1,
+  "version-name": "0.0.2"
 }
